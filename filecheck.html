@@ -1,0 +1,115 @@
+<html>
+
+<head>
+  <!-- JQUERY & Maphilight-->
+  <script src="js/jquery-3.4.1.slim.min.js"></script>
+  <script type="text/javascript" src="js/whiskeyData.js"></script>
+  <script type="text/javascript" src="js/filecheck.js"></script>
+  <!-- MY SCRIPT -->
+  <style>
+    table.redTable {
+      border: 2px solid #A40808;
+      background-color: #EEE7DB;
+      text-align: left;
+      border-collapse: collapse;
+    }
+
+    table.redTable td,
+    table.redTable th {
+      border: 1px solid #AAAAAA;
+      padding: 3px 2px;
+    }
+
+    table.redTable tbody td {
+      font-size: 13px;
+    }
+
+    table.redTable tr:nth-child(even) {
+      background: #F5C8BF;
+    }
+
+    table.redTable thead {
+      background: #A40808;
+    }
+
+    table.redTable thead th {
+      font-size: 19px;
+      font-weight: bold;
+      color: #FFFFFF;
+      text-align: center;
+      border-left: 2px solid #A40808;
+    }
+
+    table.redTable thead th:first-child {
+      border-left: none;
+    }
+
+    table.redTable tfoot {
+      font-size: 13px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background: #A40808;
+    }
+
+    table.redTable tfoot td {
+      font-size: 13px;
+    }
+
+    table.redTable tfoot .links {
+      text-align: right;
+    }
+
+    table.redTable tfoot .links a {
+      display: inline-block;
+      background: #FFFFFF;
+      color: #A40808;
+      padding: 2px 8px;
+      border-radius: 5px;
+    }
+  </style>
+
+</head>
+
+<body>
+  Bugged bottle images:
+  <table class="redTable">
+    <thead>
+      <tr>
+        <th>line</th>
+        <th>name</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+        </td>
+      </tr>
+    </tfoot>
+    <tbody id="b_bottle">
+    </tbody>
+  </table>
+  Bugged icons:
+
+  <table class="redTable">
+    <thead>
+      <tr>
+        <th>line</th>
+        <th>bottle</th>
+        <th>category name</th>
+        <th>icon name</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+        </td>
+      </tr>
+    </tfoot>
+    <tbody id="b_icon">
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

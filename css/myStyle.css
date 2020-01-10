@@ -1,0 +1,323 @@
+/* Roboto regular */
+
+@font-face {
+    font-family: "Roboto";
+    src: 
+         url("../fonts/Roboto-Regular.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Roboto italic */
+
+@font-face {
+    font-family: "Roboto";
+    src: 
+         url('../fonts/Roboto-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Roboto bold */
+
+@font-face {
+    font-family: "Roboto";
+    src: 
+         url('../fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.roboto{
+    font-family: 'Roboto';
+}
+.select select {
+        font-family: 'Roboto';
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+        padding: 10px 15px;
+        outline: 0;
+        border: 0px solid #000000;
+        border-radius: 0px;
+        background: #e6e6e6;
+        color: #7b7b7b;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #cccccc;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 60%;
+    right: 15px;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
+.control {
+    font-family: "Roboto";
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+}
+.control-radio .control_indicator {
+    border-radius: undefined;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+}
+.control-radio .control_indicator {
+    border-radius: 50%;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-radio .control_indicator:after {
+    left: 7px;
+    top: 7px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.control-radio input:disabled ~ .control_indicator:after {
+    background: #7b7b7b;
+}
+
+
+#highlands:hover path, 
+#islands:hover path, 
+#campbeltown:hover path,
+#islay:hover path,
+#lowlands:hover path,
+#speyside:hover path {
+    fill:#87062f;
+}
+
+#highlands path,
+#islands path,
+#campbeltown path,
+#islay path,
+#lowlands path,
+#speyside path{
+    webkit-transition: .3s;
+    transition: .3s;
+}
+#group{
+    height: 90%;    
+}
+.barchart_wrapper{
+    width: 88%;
+    height: 100%;
+}
+.map-clicked path{
+    fill: #87062f
+}
+.bottle{
+    overflow: hidden;
+    float: left;
+    height: 100%;
+    width: 12%;
+    text-align: center;
+}
+.image{
+    height: 100%;
+}
+.bottom_panel{
+    width: 100%;
+}
+hr {
+    border:none;
+    height:1px;
+    width:100%;
+}
+#hidelabel_group{
+    margin-bottom: 8px; 
+}
+.inline{
+    display: inline-block;
+    height: 50%;
+    width: 100%;
+}
+.left{
+    float: left;
+}
+.right{
+    float:right;
+}
+.legend .circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: 8px;
+} 
+.icon_box{
+    float: left;
+    padding: .5em;
+    width: 20%;
+}
+.icon_box legend{
+    margin-left: 1em; 
+    padding: 0.2em 0.8em;
+    font-family: 'Roboto';
+    color: #fff;
+    font-weight: bold;
+    
+}
+.peaty, .peaty legend{
+    border: 2px #8c5f8d solid;
+}
+.peaty legend{
+    background: #8c5f8d;
+}
+.smoky, .smoky legend{
+    border: 2px #f9cd48 solid;
+}
+.smoky legend{
+    background: #f9cd48;
+}
+.savoury, .savoury legend{
+    border: 2px #88aeb8 solid;
+}
+.savoury legend{
+    background: #88aeb8;
+}
+.sweet, .sweet legend{
+    border: 2px #f38986 solid;
+}
+.sweet legend{
+    background: #f38986;
+}
+.icon_img{
+    width:40%; border:2px dashed #8f8f8f;
+    margin: 2px;
+}

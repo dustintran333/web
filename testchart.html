@@ -1,0 +1,160 @@
+<html>
+
+<head>
+  <!-- BOOTSTRAP -->
+  <!--chr <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
+  <!-- MY STYLES-->
+  <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+
+  <!-- JQUERY & Maphilight-->
+  <script src="js/jquery-3.4.1.slim.min.js"></script>
+  <script src="js/jquery.maphilight.min.js"></script>
+  
+
+  <!-- GOOGLE CHART'S LOADER -->
+  <script type="text/javascript" src="js/loader.js"></script>
+
+  <!-- CUSTOMISING THE CHART -->
+  <script src="js/charts.js"></script>
+  
+  <!-- MY DATA -->
+  <script type="text/javascript" src="js/myData.js"></script>
+  <!-- MY SCRIPT -->
+  <script type="text/javascript" src="js/myScript.js"></script>
+</head>
+<style>
+  div,
+  form,
+  #btnApply {
+    display: inline-block;
+    float: left;
+    font-family: 'Roboto';
+  }
+
+  form,
+  form>* {
+    font-family: 'Roboto';
+  }
+
+  .slbox {}
+
+  #btnApply {
+    margin: 0 6px;
+    padding: 22% 7px;
+  }
+
+  sl,
+  label {
+    display: block;
+  }
+
+  sl {
+    width: 100%
+  }
+</style>
+
+<body>
+  <div id="series_chart_div" style="width: 60%; height: 75%;"></div>
+
+  <form style="width: 10%" id="sl_axis">
+    <label for="sl_axis" style="margin: 10px;">Change axis</label>
+    <div class="slbox select sl"><label for="x_axis">x_axis</label>
+      <select id="x_axis">
+      </select>
+      <div class="select_arrow"></div>
+    </div>
+    <div class="slbox select sl"><label for="y_axis">y_axis</label>
+      <select id="y_axis">
+      </select>
+      <div class="select_arrow"></div>
+    </div>
+    <div class="slbox select sl"><label for="colour_axis">colour_axis</label>
+      <select id="colour_axis">
+      </select>
+      <div class="select_arrow"></div>
+    </div>
+    <div class="slbox select sl"><label for="size_axis">size_axis</label>
+      <select id="size_axis">
+      </select>
+      <div class="select_arrow"></div>
+    </div>
+    <!--<div class="slbox select"><label for="data_set">dataset</label>
+      <input type="radio" name="data_set" value="myData2017"> top100_2017<br>
+      <input type="radio" name="data_set" value="myData2018"> top100_2018<br>
+    </div>
+    -->
+    <div class="control-group select sl">
+      <label>dataset</label>
+      <label class="control control-radio dataSet">
+        top100_2017
+        <input type="radio" name="data_set" value="myData2017">
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-radio dataSet">
+        top100_2018
+        <input type="radio" name="data_set" value="myData2018">
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div class="control-group sl" id="hidelabel_group">
+      <label class="control control-checkbox">
+        Hide label
+        <input type="checkbox" id="hidelabel">
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+  </form>
+  <script>
+  function drawChart() {
+  var dataTable = new google.visualization.DataTable();
+  dataTable.addColumn('string', 'Country');
+  // Use custom HTML content for the domain tooltip.
+  dataTable.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+  dataTable.addColumn('number', 'Gold');
+  dataTable.addColumn('number', 'Silver');
+  dataTable.addColumn('number', 'Bronze');
+
+  dataTable.addRows([
+    ['USA', createCustomHTMLContent('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg', 46, 29, 29), 46, 29, 29],
+    ['China', createCustomHTMLContent('https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg', 38, 27, 23), 38, 27, 23],
+    ['UK', createCustomHTMLContent('https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg', 29, 17, 19), 29, 17, 19]
+  ]);
+
+  var options = {
+    title: 'London Olympics Medals',
+    colors: ['#FFD700', '#C0C0C0', '#8C7853'],
+    // This line makes the entire category's tooltip active.
+    focusTarget: 'category',
+    // Use an HTML tooltip.
+    tooltip: { isHtml: true }
+  };
+
+  // Create and draw the visualization.
+  new google.visualization.ColumnChart(document.getElementById('custom_html_content_div')).draw(dataTable, options);
+}
+
+function createCustomHTMLContent(flagURL, totalGold, totalSilver, totalBronze) {
+  return '<div style="padding:5px 5px 5px 5px;">' +
+      '<img src="' + flagURL + '" style="width:75px;height:50px"><br/>' +
+      '<table class="medals_layout">' + '<tr>' +
+      '<td><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Gold_medal.svg" style="width:25px;height:25px"/></td>' +
+      '<td><b>' + totalGold + '</b></td>' + '</tr>' + '<tr>' +
+      '<td><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Silver_medal.svg" style="width:25px;height:25px"/></td>' +
+      '<td><b>' + totalSilver + '</b></td>' + '</tr>' + '<tr>' +
+      '<td><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Bronze_medal.svg" style="width:25px;height:25px"/></td>' +
+      '<td><b>' + totalBronze + '</b></td>' + '</tr>' + '</table>' + '</div>';
+}
+</script>
+</body>
+</html>
